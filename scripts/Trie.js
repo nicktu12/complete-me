@@ -3,23 +3,30 @@
 class Trie {
   constructor() {
     this.count = 0;
-    this.wordArray = [];
-    this.nodeArray = [];
+    this.head = new Node('');
   }
 
   insert(string) {
-    this.wordArray.push();
-    let splitString = string.split('');
+    let wordCheck = [];
+    let stringArray = [...string.toLowercase()];
+    let currentLetter = stringArray.shift();
+    let currentNode = this.head;
 
-    for (var i = 0; i < nodeArray.length; i++) {
-      if (nodeArray[i].id !== splitString[0]) {
-        new Node(splitString[0])
-      } else {
+    wordCheck.push(currentLetter)
 
+    while (currentLetter) {
+      if(!currentLetter.children[currentLetter]){
+        currentNode.children[currentLetter] = new Node(currentLetter);
       }
+      currentNode = currentNode.children[currentLetter];
+      currentLetter = stringArray.shift();
+      wordCheck.push(currentLetter)
+    }
+    if (wordCheck.join() === string) {
+      currentNode.isWord = true;
+      this.count++;
     }
 
-    this.countWords();
   }
 
   countWords() {

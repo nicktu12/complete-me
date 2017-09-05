@@ -1,13 +1,14 @@
 class Node {
 
-  constructor(letter) {
-    this.id = letter;
+  constructor(data) {
+    this.data = data;
     this.children = [];
+    this.isWord = false;
   }
 
-  add() {
-    this.children = new Node(letter)
-  }
+  // add() {
+  //   this.children = new Node(letter)
+  // }
 
 }
 
