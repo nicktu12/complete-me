@@ -46,22 +46,23 @@ class Trie {
     let currentNode = this.find(string);
     let suggestionsArray = [];
 
-    const helper = (wordString, node) => {
-      if (node.isWord === true) {
-        if (node.selectProp.count > 0) {
-          suggestionsArray.unshift(wordString);
-        } else {
-          suggestionsArray.push(wordString);
-        }
-      }
-      Object.keys(node.children).forEach((key)=>{
-        helper(wordString + node.children[key].data, node.children[key]);
-      })
-    }
-
-    helper(string, currentNode);
+    this.findWord(string, currentNode, suggestionsArray)
 
     return suggestionsArray;
+  }
+
+  findWord(string, node, array) {
+    if (node.isWord === true) {
+      if (node.selectProp.count > 0) {
+        array.unshift(string);
+      } else {
+        array.push(string);
+      }
+    }
+    Object.keys(node.children).forEach((key)=>{
+      this.findWord(string + node.children[key].data, node.children[key], array);
+    })
+    return array;
   }
 
   populate(largeArrayOfWords) {
