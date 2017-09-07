@@ -1,6 +1,7 @@
 import { expect, assert } from 'chai';
 import Trie from '../scripts/Trie'
 import dictionary from '../scripts/dict'
+import locus from 'locus'
 
 describe('Trie test', () => {
 
@@ -56,7 +57,16 @@ describe('Trie test', () => {
     completion.populate(dictionary);
 
     expect(completion.count).to.eq(235886);
+  })
 
+  it('should be able to select words', () => {
+    let completion = new Trie();
+    completion.populate(dictionary);
+
+    completion.select('yellow');
+    completion.select('yellowing');
+
+    console.log(completion.suggest('yell'));
   })
 
 })
