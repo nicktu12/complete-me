@@ -68,7 +68,7 @@ describe('Trie test', () => {
     completion.select('yellowing');
 
     console.log(completion.suggest('piza'));
-    eval(locus)
+    // eval(locus)
   })
 
 })
