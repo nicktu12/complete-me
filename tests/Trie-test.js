@@ -1,5 +1,6 @@
 import { expect, assert } from 'chai';
 import Trie from '../scripts/Trie'
+import dictionary from '../scripts/dict'
 
 describe('Trie test', () => {
 
@@ -45,6 +46,17 @@ describe('Trie test', () => {
     expect(completion.suggest('p')).to.deep.eq(['pizza', 'pizzeria', 'pitchfork', 'pasta']);
     expect(completion.suggest('pi')).to.deep.eq(['pizza', 'pizzeria', 'pitchfork']);
     expect(completion.suggest('piz')).to.deep.eq(['pizza', 'pizzeria']);
+  })
+
+  it('should THE DICTIONARY', () => {
+    let completion = new Trie();
+
+    expect(completion.count).to.eq(0);
+
+    completion.populate(dictionary);
+
+    expect(completion.count).to.eq(235886);
+
   })
 
 })

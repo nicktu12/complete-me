@@ -10,26 +10,19 @@ class Trie {
 
   insert(string) {
     let currentNode = this.head;
-    let wordCheck = [];
     let stringArray = [...string.toLowerCase()];
     let currentLetter = stringArray.shift();
 
-    wordCheck.push(currentLetter)
 
     while (currentLetter) {
-      // console.log(currentNode.children[currentLetter]);
-      // why is this undefined
       if (!currentNode.children[currentLetter]) {
         currentNode.children[currentLetter] = new Node(currentLetter);
       }
       currentNode = currentNode.children[currentLetter];
       currentLetter = stringArray.shift();
-      wordCheck.push(currentLetter)
     }
-    if (wordCheck.join('') === string) {
-      currentNode.isWord = true;
-      this.countWords();
-    }
+    currentNode.isWord = true;
+    this.countWords();
 
   }
 
@@ -67,6 +60,12 @@ class Trie {
     helper(string, currentNode);
 
     return suggestionsArray;
+  }
+
+  populate(largeArrayOfWords) {
+    largeArrayOfWords.forEach((word)=>{
+      this.insert(word);
+    })
   }
 
 }
