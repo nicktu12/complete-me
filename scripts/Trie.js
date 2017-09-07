@@ -48,7 +48,7 @@ class Trie {
 
     const helper = (wordString, node) => {
       if (node.isWord === true) {
-        if(node.selectProp.count > 0) {
+        if (node.selectProp.count > 0) {
           suggestionsArray.unshift(wordString);
         } else {
           suggestionsArray.push(wordString);

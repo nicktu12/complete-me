@@ -49,7 +49,7 @@ describe('Trie test', () => {
     expect(completion.suggest('piz')).to.deep.eq(['pizza', 'pizzeria']);
   })
 
-  it('should THE DICTIONARY', () => {
+  it.skip('should THE DICTIONARY', () => {
     let completion = new Trie();
 
     expect(completion.count).to.eq(0);
@@ -61,12 +61,14 @@ describe('Trie test', () => {
 
   it('should be able to select words', () => {
     let completion = new Trie();
+
     completion.populate(dictionary);
 
     completion.select('yellow');
     completion.select('yellowing');
 
-    console.log(completion.suggest('yell'));
+    console.log(completion.suggest('piza'));
+    eval(locus)
   })
 
 })
