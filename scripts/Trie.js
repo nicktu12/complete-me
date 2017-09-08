@@ -40,21 +40,21 @@ class Trie {
       if (currentNode.children[letter]) {
         currentNode = currentNode.children[letter];
       } else {
-        return null;
+        return;
       }
     })
     return currentNode;
   }
 
   suggest(string) {
-    let currentNode = this.findNode(string);
-    let suggestionsArray = [];
+    if (this.findNode(string).data === string[string.length - 1]) {
+      let currentNode = this.findNode(string);
+      let suggestionsArray = [];
 
-    if (this.findNode(string)) {
-      this.findCompleteWords(string, currentNode, suggestionsArray)      
+      this.findCompleteWords(string, currentNode, suggestionsArray)
+
+      return suggestionsArray.slice(0, 9);
     }
-
-    return suggestionsArray.slice(0, 9);
   }
 
   findCompleteWords(string, node, array) {

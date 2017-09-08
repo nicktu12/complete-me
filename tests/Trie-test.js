@@ -44,7 +44,7 @@ describe('Trie test', () => {
   })
 
   context('suggest()', () => {
-    it.only('should should be able to offer suggestions based on a prefix', () => {
+    it('should should be able to offer suggestions based on a prefix', () => {
       expect(completion.count).to.eq(0);
       completion.insert('pizza');
       completion.insert('pizzeria');
@@ -60,6 +60,23 @@ describe('Trie test', () => {
       expect(completion.suggest('a')).to.deep.eq(['apple', 'arson', 'alley']);
       expect(completion.suggest('pi')).to.deep.eq(['pizza', 'pizzeria', 'pie']);
       expect(completion.suggest('piz')).to.deep.eq(['pizza', 'pizzeria']);
+    })
+
+    it('should not return an array if the input is gibberish', () => {
+      expect(completion.count).to.eq(0);
+      completion.insert('pizza');
+      completion.insert('pizzeria');
+      completion.insert('apple');
+      completion.insert('arson');
+      completion.insert('fries');
+      completion.insert('hometeam');
+      completion.insert('pie');
+      completion.insert('alley');
+      completion.insert('pasta');
+
+      expect(completion.count).to.eq(9);
+      expect(completion.suggest('akehry')).to.eq(undefined);
+
     })
   })
 
@@ -95,13 +112,11 @@ describe('Trie test', () => {
       expect(completion.findNode('yellow').selectProp.count).to.eq(1);
     })
 
-    it.only('should save the prefix and count of selections for that prefix', () => {
+    it('should save the prefix and count of selections for that prefix', () => {
       completion.populate(dictionary);
       completion.select('pizza', 'piz');
       completion.select('pizza', 'pi');
       completion.select('pizza', 'piz');
-
-      console.log(completion.findNode('pizza').selectProp.prefixFreq);
 
       expect(completion.findNode('pizza').selectProp.count).to.eq(3);
       // expect(completion.findNode('pizza').selectProp.prefixFreq.count).to.eq(3);

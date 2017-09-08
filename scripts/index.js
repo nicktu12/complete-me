@@ -8,39 +8,20 @@ completion.populate(dictionary);
 const input = document.getElementById('user-input')
 
 input.addEventListener('keyup', ()=>{
-  if (input.value.length > 1) {
-    $('input').autocomplete({
-      source: completion.suggest(input.value),
-      // focus: function( event, body ) {
-      //   $( "#user-input" ).val( body.item.label );
-      //   return false;
-      // },
-      // select: function( event, body ) {
-      //    $( "#user-input" ).val( body.item.label );
-      //    $( "#user-input" ).val( body.item.value );
-      //    $( "#user-input" ).html( body.item.desc );
-      //    return false;
-      // }
-    })
-  } else {
-    return
-  }
+  $('input').autocomplete({
+    source: completion.suggest(input.value),
+    minLength: 1,
+    focus: function(event, ui) {
+      $(this).val(ui.item.label);
+      return false;
+    },
+    select: function(event, ui) {
+      console.log($('#user-input').val());
+      $('#user-input').val(ui.item.value);
+      $(this).val(ui.item.label);
+      return false;
+    }
+  })
 })
-
-// input.addEventListener('click', () => {
-//   $('input').autocomplete({
-//     select: function (e, ui) {
-//       console.log('hey');
-//     }
-//   })
-// })
-// $( "#user-input" ).on( "autocompleteselect", function( event, ui ) {console.log('hey');} );
-
-
-
-
-// $("#user-input").autocomplete({
-//   source: dictionary
-// });
 
 // https://www.youtube.com/watch?v=FcerV0AO0bM
