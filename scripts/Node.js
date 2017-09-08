@@ -4,7 +4,7 @@ class Node {
     this.data = data;
     this.children = {};
     this.isWord = false;
-    this.selectProp = {count: 0, prefixFreq: {count: 0, prefix: []}};
+    this.selectProp = {count: 0, prefixFreq: []};
   }
 }
 

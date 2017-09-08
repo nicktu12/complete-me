@@ -23,6 +23,11 @@ class Trie {
     this.countWords();
   }
 
+  // if (!currentNode.isWord) {
+  //   currentNode.isWord = true;
+  //   this.countWords();
+  // }
+
   countWords() {
     this.count++
   }
@@ -45,9 +50,11 @@ class Trie {
     let currentNode = this.findNode(string);
     let suggestionsArray = [];
 
-    this.findCompleteWords(string, currentNode, suggestionsArray)
+    if (this.findNode(string)) {
+      this.findCompleteWords(string, currentNode, suggestionsArray)      
+    }
 
-    return suggestionsArray.slice(0,9);
+    return suggestionsArray.slice(0, 9);
   }
 
   findCompleteWords(string, node, array) {
@@ -75,8 +82,11 @@ class Trie {
     let selectedPrefix = prefix || 'hehe';
 
     selected.selectProp.count++;
-    selected.selectProp.prefixFreq.count++;
-    selected.selectProp.prefixFreq.prefix.push(selectedPrefix);
+    if (!selected.selectProp.prefixFreq.selectedPrefix) {
+      selected.selectProp.prefixFreq.push({selectedPrefix: prefix, prefixCount: 1});
+    } else {
+      selected.selectProp.prefixFreq.prefixCount++;
+    }
   }
 
 }
