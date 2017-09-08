@@ -1,9 +1,7 @@
-// const Trie = (array) => {
 import Node from '../scripts/Node'
-// const Node = require('../scripts/Node')
-
 
 class Trie {
+
   constructor() {
     this.count = 0;
     this.head = new Node('');
@@ -84,5 +82,3 @@ class Trie {
 }
 
 export default Trie
-
-// module.exports = { Trie };
