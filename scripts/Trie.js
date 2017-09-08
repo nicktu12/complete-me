@@ -1,5 +1,6 @@
 // const Trie = (array) => {
 import Node from '../scripts/Node'
+// const Node = require('../scripts/Node')
 
 
 class Trie {
@@ -28,7 +29,7 @@ class Trie {
     this.count++
   }
 
-  find(string) {
+  findNode(string) {
     let stringArray = [...string.toLowerCase()];
     let currentNode = this.head;
 
@@ -43,15 +44,15 @@ class Trie {
   }
 
   suggest(string) {
-    let currentNode = this.find(string);
+    let currentNode = this.findNode(string);
     let suggestionsArray = [];
 
-    this.findWord(string, currentNode, suggestionsArray)
+    this.findCompleteWords(string, currentNode, suggestionsArray)
 
     return suggestionsArray;
   }
 
-  findWord(string, node, array) {
+  findCompleteWords(string, node, array) {
     if (node.isWord === true) {
       if (node.selectProp.count > 0) {
         array.unshift(string);
@@ -60,7 +61,7 @@ class Trie {
       }
     }
     Object.keys(node.children).forEach((key)=>{
-      this.findWord(string + node.children[key].data, node.children[key], array);
+      this.findCompleteWords(string + node.children[key].data, node.children[key], array);
     })
     return array;
   }
@@ -72,7 +73,7 @@ class Trie {
   }
 
   select(word, prefix) {
-    let selected = this.find(word);
+    let selected = this.findNode(word);
     let selectedPrefix = prefix || 'hehe';
 
     selected.selectProp.count++;
@@ -83,3 +84,5 @@ class Trie {
 }
 
 export default Trie
+
+// module.exports = { Trie };
