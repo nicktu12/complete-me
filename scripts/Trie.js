@@ -47,7 +47,7 @@ class Trie {
 
     this.findCompleteWords(string, currentNode, suggestionsArray)
 
-    return suggestionsArray;
+    return suggestionsArray.slice(0,9);
   }
 
   findCompleteWords(string, node, array) {
