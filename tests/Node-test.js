@@ -1,9 +1,7 @@
-// const Node = require('../scripts/Node');
-// const expect = require('chai');
 import Node from '../scripts/Node'
 import { expect } from 'chai';
 
-describe('NODE TEST', () => {
+describe('Node test', () => {
 
   it('should be an object', () => {
     let node = new Node();

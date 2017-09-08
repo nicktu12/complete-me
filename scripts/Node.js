@@ -6,8 +6,6 @@ class Node {
     this.isWord = false;
     this.selectProp = {count: 0, prefixFreq: {count: 0, prefix: []}};
   }
-
 }
 
 export default Node
-// module.exports = { Node };
