@@ -10,12 +10,15 @@ const input = document.getElementById('user-input')
 input.addEventListener('keyup', ()=>{
   if (input.value.length > 1) {
     $('input').autocomplete({
-      source: completion.suggest(input.value)
+      source: completion.suggest(input.value),
     })
   } else {
     return
   }
 })
+
+$( "#user-input" ).on( "autocompleteselect", function( event, ui ) {console.log('hey');} );
+
 
 
 

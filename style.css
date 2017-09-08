@@ -1,19 +1,39 @@
-h1, input {
-  width: 250px;
-  margin: auto;
+@font-face {
+    font-family: apFont;
+    src: url('lib/Belbott0.ttf');
 }
 
 h1 {
+  font-family: apFont;
+  width: 560px;
+  color: #5BCCB3;
   text-align: center;
-  margin-top: 150px;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+#complete {
+  color: #4328BA;
+}
+
+#me {
+  color: #FF721B;
 }
 
 input {
+  width: 300px;
+  margin-left: 125px;
   display: block;
 }
 
 iframe {
   padding-top: 10px;
   display: block;
-  margin: auto;
+  /*margin: auto;*/
+}
+
+body {
+  background-image: url('lib/apwp.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
