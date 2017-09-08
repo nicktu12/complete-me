@@ -44,7 +44,7 @@ describe('Trie test', () => {
   })
 
   context('suggest()', () => {
-    it('should should be able to offer suggestions based on a prefix', () => {
+    it.only('should should be able to offer suggestions based on a prefix', () => {
       expect(completion.count).to.eq(0);
       completion.insert('pizza');
       completion.insert('pizzeria');
@@ -95,12 +95,15 @@ describe('Trie test', () => {
       expect(completion.findNode('yellow').selectProp.count).to.eq(1);
     })
 
-    it('should save the prefix and count of selections for that prefix', () => {
-      // completion.populate(dictionary);
-      // completion.select('pizza', 'piz');
-      // completion.select('pizza', 'pi');
-      // completion.select('pizza', 'piz');
-      //
+    it.only('should save the prefix and count of selections for that prefix', () => {
+      completion.populate(dictionary);
+      completion.select('pizza', 'piz');
+      completion.select('pizza', 'pi');
+      completion.select('pizza', 'piz');
+
+      console.log(completion.findNode('pizza').selectProp.prefixFreq);
+
+      expect(completion.findNode('pizza').selectProp.count).to.eq(3);
       // expect(completion.findNode('pizza').selectProp.prefixFreq.count).to.eq(3);
     })
   })

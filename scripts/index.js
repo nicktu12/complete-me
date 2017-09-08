@@ -11,13 +11,30 @@ input.addEventListener('keyup', ()=>{
   if (input.value.length > 1) {
     $('input').autocomplete({
       source: completion.suggest(input.value),
+      // focus: function( event, body ) {
+      //   $( "#user-input" ).val( body.item.label );
+      //   return false;
+      // },
+      // select: function( event, body ) {
+      //    $( "#user-input" ).val( body.item.label );
+      //    $( "#user-input" ).val( body.item.value );
+      //    $( "#user-input" ).html( body.item.desc );
+      //    return false;
+      // }
     })
   } else {
     return
   }
 })
 
-$( "#user-input" ).on( "autocompleteselect", function( event, ui ) {console.log('hey');} );
+// input.addEventListener('click', () => {
+//   $('input').autocomplete({
+//     select: function (e, ui) {
+//       console.log('hey');
+//     }
+//   })
+// })
+// $( "#user-input" ).on( "autocompleteselect", function( event, ui ) {console.log('hey');} );
 
 
 
