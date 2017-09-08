@@ -1,0 +1,19 @@
+h1, input {
+  width: 250px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 150px;
+}
+
+input {
+  display: block;
+}
+
+iframe {
+  padding-top: 10px;
+  display: block;
+  margin: auto;
+}

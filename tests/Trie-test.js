@@ -2,6 +2,12 @@ import { expect, assert } from 'chai';
 import Trie from '../scripts/Trie'
 import dictionary from '../scripts/dict'
 import locus from 'locus'
+// const Trie = require('../scripts/Trie.js');
+// const dictionary = require('../scripts/dict.js');
+// const locus = require('locus');
+// const expect = require('chai');
+
+
 
 describe('Trie test', () => {
 
@@ -13,8 +19,6 @@ describe('Trie test', () => {
     let completion = new Trie();
 
     expect(completion.count).to.eq(0);
-
-    assert.equal(completion.count, 0)
 
     completion.insert('pizza');
     expect(completion.count).to.eq(1);
@@ -49,7 +53,7 @@ describe('Trie test', () => {
     expect(completion.suggest('piz')).to.deep.eq(['pizza', 'pizzeria']);
   })
 
-  it.skip('should THE DICTIONARY', () => {
+  it('should THE DICTIONARY', () => {
     let completion = new Trie();
 
     expect(completion.count).to.eq(0);
@@ -58,6 +62,12 @@ describe('Trie test', () => {
 
     expect(completion.count).to.eq(235886);
   })
+
+  // tests for if its already been inserted
+  // if(!currentNode.isWord) {
+  //   currentNode.isWord = true;
+  //   this.count++;
+  // }
 
   it('should be able to select words', () => {
     let completion = new Trie();
