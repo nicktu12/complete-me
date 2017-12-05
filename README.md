@@ -10,14 +10,6 @@ Complete Me is an autocomplete prefix trie that will return an array of words th
 
 Download this repositiory as an npm package to use CompleteMe in your own project. See install as an npm module section below.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
 ### Installing
 
 
