@@ -2,9 +2,13 @@
 
 Complete Me is an autocomplete prefix trie that will return an array of words that match a user's input.
 
+![completeme](https://user-images.githubusercontent.com/26471447/33616810-3e1679a6-d99b-11e7-9ce1-f6052648d3ef.gif)
+
+<img width="753" alt="screen shot 2017-12-05 at 8 07 01 am" src="https://user-images.githubusercontent.com/26471447/33614015-62b0e114-d993-11e7-807f-405b1664d801.png">
+
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Download this repositiory as an npm package to use CompleteMe in your own project. See install as an npm module section below.
 
 ### Prerequisites
 
@@ -16,76 +20,39 @@ Give examples
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+Clone down this repository and install npm. Execute the following command in your CLI.
 
 ```
-until finished
+npm install
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+To start the application on localhost:8080, enter the following command. 
+```
+npm start
+```
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+In order to run tests for this project, enter the following command:
 
 ```
-Give an example
+npm test
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [es6](http://es6-features.org/#Constants) - Javascript syntax
+* [jQuery UI](https://jqueryui.com/) - UI elements from the jQuery library
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Nick Teets** - [Github](https://github.com/nicktu12)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
-## install as an npm module
+## Install as an npm module
 
 To use Complete-Me you must run npm install [https://github.com/nicktu12/complete-me/tree/package] -S in your project folder.
